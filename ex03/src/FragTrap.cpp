@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 22:03:52 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/06 00:38:07 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/06 00:35:30 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/06 04:57:34 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "FragTrap [" << getName() << "] constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap() {
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	setClassName("FragTrap");
 	setName(name);
 	setHealthPoints(100);
@@ -50,6 +50,21 @@ FragTrap& FragTrap::operator=(const FragTrap& otherFragTrap) {
 	setEnergyPoints(const_cast<FragTrap&>(otherFragTrap).getEnergyPoints());
 	setAttackPoints(const_cast<FragTrap&>(otherFragTrap).getAttackPoints());
 	return *this;
+}
+
+void	FragTrap::attack(const std::string& target) {
+	if (getHealthPoints() > 0) {
+		if (getEnergyPoints() > 0) {
+			std::cout << "FragTrap [" << getName() << "] attacks [" << target << "], causing ["
+			<< getAttackPoints() << "] point(s) of damage!" << std::endl;
+			setEnergyPoints(getEnergyPoints() - 1);
+		}
+		else
+			std::cout << "FragTrap [" << getName() << "] can't attack [" << target
+				<< "]!" << std::endl;
+	}
+	else
+		std::cout << "FragTrap [" << getName() << "] is dead!" << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void){

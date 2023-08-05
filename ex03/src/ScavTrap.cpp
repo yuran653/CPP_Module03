@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 04:15:13 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/06 02:28:22 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/06 00:35:19 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/06 04:57:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap [" << getName() << "] constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap() {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 	setClassName("ScavTrap");
 	setName(name);
 	setHealthPoints(100);
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(ScavTrap& otherScavTrap) {
 
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap [" << getName() << "] destructor called" << std::endl;
-	ClapTrap::~ClapTrap();	
+	ClapTrap::~ClapTrap();
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& otherScavTrap) {
@@ -50,6 +50,21 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& otherScavTrap) {
 	setEnergyPoints(const_cast<ScavTrap&>(otherScavTrap).getEnergyPoints());
 	setAttackPoints(const_cast<ScavTrap&>(otherScavTrap).getAttackPoints());
 	return *this;
+}
+
+void	ScavTrap::attack(const std::string& target) {
+	if (getHealthPoints() > 0) {
+		if (getEnergyPoints() > 0) {
+			std::cout << "ScavTrap [" << getName() << "] attacks [" << target << "], causing ["
+			<< getAttackPoints() << "] point(s) of damage!" << std::endl;
+			setEnergyPoints(getEnergyPoints() - 1);
+		}
+		else
+			std::cout << "ScavTrap [" << getName() << "] can't attack [" << target
+				<< "]!" << std::endl;
+	}
+	else
+		std::cout << "ScavTrap [" << getName() << "] is dead!" << std::endl;
 }
 
 void	ScavTrap::guardGate() {
