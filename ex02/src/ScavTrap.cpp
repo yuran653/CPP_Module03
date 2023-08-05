@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 04:15:13 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/05 22:38:34 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/05 22:02:52 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/05 22:25:06 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap [" << getName() << "] constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap() {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(){
 	setClassName("ScavTrap");
 	setName(name);
 	setHealthPoints(100);
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(ScavTrap& otherScavTrap) {
 
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap [" << getName() << "] destructor called" << std::endl;
-	ClapTrap::~ClapTrap();	
+	ClapTrap::~ClapTrap();
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& otherScavTrap) {
