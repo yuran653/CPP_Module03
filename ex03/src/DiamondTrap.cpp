@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:35:53 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/06 05:27:55 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:31:18 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ DiamondTrap::~DiamondTrap() {
 	std::cout << "DiamondTrap [" << getName() << "] destructor called" << std::endl;
 	ScavTrap::~ScavTrap();
 	FragTrap::~FragTrap();
-	FragTrap::~FragTrap();
+	ClapTrap::~ClapTrap();
 
 }
 

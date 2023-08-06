@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:34:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/06 00:47:27 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:25:34 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ void	ClapTrap::displayInfo(void) {
 void	ClapTrap::attack(const std::string& target) {
 	if (_health > 0) {
 		if (_energy > 0) {
-			std::cout << getClassName() << " [" << getName() << "] attacks [" << target << "], causing ["
+			std::cout << "ClapTrap [" << getName() << "] attacks [" << target << "], causing ["
 			<< getAttackPoints() << "] point(s) of damage!" << std::endl;
 			_energy--;
 		}
 		else
-			std::cout << getClassName() << " [" << getName() << "] can't attack [" << target
+			std::cout << "ClapTrap [" << getName() << "] can't attack [" << target
 				<< "]!" << std::endl;
 	}
 	else
-		std::cout << getClassName() << " [" << getName() << "] is dead!" << std::endl;
+		std::cout << "ClapTrap [" << getName() << "] is dead!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {

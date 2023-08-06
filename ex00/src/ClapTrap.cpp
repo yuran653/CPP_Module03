@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 20:54:55 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/05 05:51:59 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:18:56 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap() {
 	_health = 10;
 	_energy = 10;
 	_attack = 0;
-	std::cout << getClassName() << " [" << getName() << "] constructor called" << std::endl;
+	std::cout << "ClapTrap [" << getName() << "] constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) {
@@ -27,23 +27,21 @@ ClapTrap::ClapTrap(std::string name) {
 	_health = 10;
 	_energy = 10;
 	_attack = 0;
-	std::cout << getClassName() << " [" << getName() << "] constructor called" << std::endl;
+	std::cout << "ClapTrap [" << getName() << "] constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap& otherClapTrap) {
-	std::cout << const_cast<ClapTrap&>(otherClapTrap).getClassName()
-		<< " copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = otherClapTrap;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << getClassName() << " [" << getName() << "] destructor called" << std::endl;
+	std::cout << "ClapTrap [" << getName() << "] destructor called" << std::endl;
 
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& otherClapTrap) {
-	std::cout << const_cast<ClapTrap&>(otherClapTrap).getClassName()
-		<< " overload assignment operator called" << std::endl;
+	std::cout << "ClapTrap overload assignment operator called" << std::endl;
 	if (this == &otherClapTrap)
 		return *this;
 	_class_name = otherClapTrap._class_name;
